@@ -235,24 +235,24 @@ const Navbar = () => {
     }
 
     // Function to handle scroll to section
-   const handleSectionScroll = (href) => {
-    setIsMenuOpen(false);
+    const handleSectionScroll = (href) => {
+        setIsMenuOpen(false);
 
-    if (href.startsWith("#")) {
-        if (location.pathname !== "/") {
-            // Navigate to home first
-            navigate("/", { state: { scrollTo: href } });
-        } else {
-            // Already on home, scroll immediately
-            const element = document.querySelector(href);
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
+        if (href.startsWith("#")) {
+            if (location.pathname !== "/") {
+                // Navigate to home first
+                navigate("/", { state: { scrollTo: href } });
+            } else {
+                // Already on home, scroll immediately
+                const element = document.querySelector(href);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
             }
+        } else {
+            navigate(href);
         }
-    } else {
-        navigate(href);
-    }
-};
+    };
 
     return (
         <div className="bg-black z-20 fixed bg-opacity-70 w-full">
@@ -284,22 +284,22 @@ const Navbar = () => {
                                     transition={{ duration: 0.4, ease: 'easeInOut' }}
                                     className="absolute top-0 left-0 w-full z-50"
                                 >
-                                    <div className="px-5 bg-black bg-opacity-85 backdrop-blur-md rounded shadow-sm min-h-screen min-w-screen border border-gray-700">
+                                    <div className="px-5 bg-black bg-opacity-85 backdrop-blur-md rounded shadow-sm min-h-screen w-full border border-gray-700 ">
                                         {/* Close Button */}
-                                        <div className="flex items-center justify-start mb-6">
+                                        <div className="flex items-center justify-start  mb-6">
                                             <button
                                                 aria-label="Close Menu"
                                                 title="Close Menu"
-                                                className="p-2 transition duration-300 rounded-full hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                                                className="p-2  transition duration-300 rounded-full hover:bg-gray-800 focus:outline-none focus:shadow-outline mt-3"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
-                                                <X className="w-6 h-6 text-white hover:text-[#fbaf3f]" />
+                                                <X className="w-6 h-6 text-white hover:text-[#fbaf3f] " />
                                             </button>
                                         </div>
 
                                         {/* Navigation */}
                                         <motion.ul
-                                            className="space-y-4 text-center"
+                                            className="space-y-4 text-center md:-mt-6"
                                             variants={menuContainer}
                                             initial="hidden"
                                             animate="show"
@@ -310,16 +310,25 @@ const Navbar = () => {
                                                 </a>
                                             </motion.li>
 
-                                            {menuItems.map(({ label, href }, index) => (
-                                                <motion.li key={index} variants={menuItem}>
-                                                    <button
-                                                        onClick={() => handleSectionScroll(href)}
-                                                        className="inline-flex items-center justify-center h-[26px] px-6 tracking-wide md:text-2xl font-medium transition duration-200 rounded shadow-md text-white hover:text-[#fbaf3f]"
-                                                    >
-                                                        {label}
-                                                    </button>
-                                                </motion.li>
-                                            ))}
+                                            {menuItems.map(({ label, href }, index) => {
+                                                const isActive =
+                                                    (href === "/" && location.pathname === "/") ||
+                                                    (href.startsWith("#") && location.hash === href) ||
+                                                    (href !== "/" && href === location.pathname);
+
+                                                return (
+                                                    <motion.li key={index} variants={menuItem}>
+                                                        <button
+                                                            onClick={() => handleSectionScroll(href)}
+                                                            className={`inline-flex items-center justify-center h-[26px] px-6 tracking-wide md:text-2xl font-medium transition duration-200 rounded shadow-md 
+        ${isActive ? "text-[#fbaf3f]" : "text-white hover:text-[#fbaf3f]"}`}
+                                                        >
+                                                            {label}
+                                                        </button>
+                                                    </motion.li>
+                                                );
+                                            })}
+
 
                                             {/* Social Icons */}
                                             <motion.li

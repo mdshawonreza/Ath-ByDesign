@@ -16,6 +16,16 @@ import adidasLogo from "../../assets/images (1).png";
 import playercvr1 from "../../assets/football-american-football-runner-player-159515.webp";
 import stadiumImage from "../../assets/start-muscle-runner-stadium-wallpaper-preview.jpg";
 
+import Image1 from "../../../src/assets/pexels-pixabay-274422.jpg";
+import Image2 from "../../../src/assets/pexels-pixabay-163398.jpg";
+import Image3 from "../../../src/assets/pexels-pixabay-159574.jpg";
+import Image4 from "../../../src/assets/pexels-pixabay-159548.jpg";
+import Image5 from "../../../src/assets/pexels-pixabay-209960.jpg";
+import Image6 from "../../assets/pexels-thomas-chauke-437438-1866654.jpg";
+import Image7 from "../../assets/pexels-kampus-8941613.jpg";
+import Image8 from "../../assets/pexels-pixabay-2209.jpg";
+import Image9 from "../../assets/pexels-pixabay-267761.jpg";
+import Image10 from "../../assets/shai-mvp-trophy-may2025-860x484.avif";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -123,7 +133,7 @@ const ScrollHorizontalComponentsAnother = () => {
           variants={containerVariants}
           ref={addToRefs}
           className="absolute top-0  w-[130vh] left-0 md:w-screen min-h-screen flex items-center justify-center p-8 bg-cover bg-center"
-          style={{ backgroundImage: `url(${stadiumImage})` }}
+          style={{ backgroundImage: `url(${Image1})` }}
         >
           <div></div>
         </motion.div>
@@ -144,7 +154,7 @@ const ScrollHorizontalComponentsAnother = () => {
               </p>
               <h1 className="text-white font-semibold tracking-wider mt-4 flex flex-row items-center justify-center gap-4 text-center">
                 <span className="text-4xl sm:text-6xl md:text-7xl ">
-                  PHILANTHROPIST
+                  Lorpsum dolor
                 </span>
                 <span className="block w-[200px] md:w-[500px] h-[2px] bg-gray-300 -mr-64"></span>
               </h1>
@@ -160,7 +170,7 @@ const ScrollHorizontalComponentsAnother = () => {
           variants={containerVariants}
           ref={addToRefs}
           className="relative h-full w-[120vh] md:w-[70%] flex flex-col lg:flex-row items-center justify-between bg-cover bg-center"
-          style={{ backgroundImage: `url(${mainAthleteImage})` }}
+          style={{ backgroundImage: `url(${Image2})` }}
         >
 
         </motion.div>
@@ -202,7 +212,7 @@ const ScrollHorizontalComponentsAnother = () => {
 
                   <div className="relative ">
                     <img
-                      src={stadiumImage}
+                      src={Image3}
                       alt="Bike-A-Thon"
                       className="w-full h-64 md:h-80 object-cover"
                     />
@@ -246,9 +256,9 @@ const ScrollHorizontalComponentsAnother = () => {
             <div className="flex justify-start">
               <div className='flex-1 mt-28 md:mt-0'>
                 <img
-                  src={playercvr1}
+                  src={Image4}
                   alt="Left Image"
-                  className=" shadow-lg"
+                  className=" shadow-lg w-[500px] md:w-[900px]"
                 />
               </div>
 
@@ -258,9 +268,9 @@ const ScrollHorizontalComponentsAnother = () => {
             <div className="flex justify-start items-end">
               <div className='flex flex-1 mb-28 md:mb-0'>
                 <img
-                  src={playercvr1}
+                  src={Image5}
                   alt="Left Image"
-                  className=" shadow-lg"
+                  className=" shadow-lg w-[500px] md:w-[900px]"
                 />
               </div>
 
@@ -320,12 +330,12 @@ const ScrollHorizontalComponentsAnother = () => {
           whileInView="show"
           viewport={{ once: false, amount: 0.3 }}
           variants={containerVariants}
-          className="absolute top-0 left-0 w-[100vh]  md:w-[50%]  h-screen flex items-center justify-between "
+          className="absolute top-0 left-0 w-[100vh]  md:w-[50%]  h-screen flex items-center justify-between bg-black"
         >
           <div className=" flex items-center w-full">
 
             <img
-              src={mainAthleteImage}
+              src={Image6}
               alt="Left Image"
               className=" shadow-lg"
             />
@@ -391,18 +401,18 @@ const ScrollHorizontalComponentsAnother = () => {
           whileInView="show"
           viewport={{ once: false, amount: 0.3 }}
           variants={containerVariants}
-          className="absolute top-0 left-0 w-[130vh] md:w-[51%]  h-screen flex  justify-between bg-black"
+          className="absolute top-0 left-0 w-[130vh] md:w-[65%]  h-screen flex  justify-between bg-black"
         >
           <div className="flex relative ">
 
             <img
-              src={img1}
+              src={Image8}
               alt="Left Image"
               className=" shadow-lg"
             />
-            <div className='absolute w-72 bottom-0 -right-14'>
+            <div className='absolute w-72 md:w-[465px] bottom-0 -right-14 md:-right-24 '>
               <img
-                src={mainAthleteImage}
+                src={Image7}
                 alt="Left Image"
                 className=" shadow-lg"
               />
@@ -592,7 +602,7 @@ const ScrollHorizontalComponentsAnother = () => {
           <div className=" flex items-center w-full">
 
             <img
-              src={mainAthleteImage}
+              src={Image9}
               alt="Left Image"
               className=" shadow-lg"
             />
@@ -605,7 +615,7 @@ const ScrollHorizontalComponentsAnother = () => {
         </motion.div>
 
 
-         <motion.div
+        <motion.div
           ref={addToRefs}
           initial="hidden"
           whileInView="show"
@@ -656,7 +666,7 @@ const ScrollHorizontalComponentsAnother = () => {
           variants={containerVariants}
           ref={addToRefs}
           className="absolute top-0 left-0 w-[130vh] md:w-screen min-h-screen flex items-center justify-center p-8 bg-cover bg-center"
-          style={{ backgroundImage: `url(${mainAthleteImage})` }}
+          style={{ backgroundImage: `url(${Image10})` }}
         >
         </motion.div>
 

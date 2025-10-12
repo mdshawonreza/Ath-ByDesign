@@ -1,4 +1,6 @@
 import React from "react";
+import Image1 from "../../assets/pexels-pixabay-290416.jpg";
+import Image2 from "../../assets/pexels-willpicturethis-1954524.jpg";
 
 
 const PartnersSection = () => {
@@ -16,7 +18,7 @@ const PartnersSection = () => {
               >
                 {/* Background Image */}
                 <img
-                  src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2940&auto=format&fit=crop"
+                  src={Image1}
                   alt="Athlete Training"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
                 />
@@ -28,11 +30,11 @@ const PartnersSection = () => {
                 <div
                   className="absolute bottom-28 left-1/2 -translate-x-1/2 text-center"
                 >
-                  <h3 className="text-white text-2xl md:text-3xl font-bold tracking-wide drop-shadow-lg">
+                  <h3 className="text-white text-2xl md:text-3xl font-bold tracking-wide drop-shadow-lg ">
                     Lorem, ipsum dolor.
 
                   </h3>
-                  <p className="text-gray-200 text-sm md:text-base mt-1 italic">
+                  <p className="text-orange-500 text-sm md:text-base mt-1 italic ">
                     Strength. Passion. Legacy.
                   </p>
                 </div>
@@ -66,7 +68,7 @@ const PartnersSection = () => {
                   className="group relative flex flex-col overflow-hidden  h-full"
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1626897505254-e0f811aa9bf7?q=80&w=2940&auto=format&fit=crop"
+                    src={Image2}
                     alt="Vodka"
                     className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                   />
