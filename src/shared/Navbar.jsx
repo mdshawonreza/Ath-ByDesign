@@ -219,8 +219,9 @@ const Navbar = () => {
     };
 
     const menuItems = [
-        { label: "NIL Agency", href: "#nilAgency" },
+        
         { label: "About Us", href: "#aboutUs" },
+        { label: "NIL Agency", href: "#nilAgency" },
         { label: "Nutrition", href: "/nutrition" },
         { label: "Youth Sports", href: "#youthSports" },
         { label: "Combine Events", href: "/combine-events" },

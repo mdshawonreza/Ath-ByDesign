@@ -40,8 +40,9 @@ const Home = () => {
 
             <Banner></Banner>
             {/* <ParallaxZoomVideo></ParallaxZoomVideo> */}
-            <NILAgencyTiles></NILAgencyTiles>
             <ScrollHorizontalComponents></ScrollHorizontalComponents>
+            <NILAgencyTiles></NILAgencyTiles>
+            
             <PartnersSection></PartnersSection>
             <ScrollHorizontalComponentsAnother></ScrollHorizontalComponentsAnother>
             <PartnersSectionAnother></PartnersSectionAnother>

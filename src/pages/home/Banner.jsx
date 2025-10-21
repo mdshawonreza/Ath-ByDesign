@@ -190,8 +190,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import banner from "../../assets/banner.jpeg";
-
+import banner from "../../assets/WhatsApp Image 2025-10-18 at 1.55.04 AM.jpeg";
+import mainVideo from "../../assets/WhatsApp Video 2025-10-18 at 2.25.20 AM.mp4"
 gsap.registerPlugin(ScrollTrigger);
 
 const BannerWithParallaxVideo = () => {
@@ -227,7 +227,7 @@ const BannerWithParallaxVideo = () => {
       </div>
 
       {/* Parallax Video */}
-      <div
+      {/* <div
         ref={videoContainerRef}
         className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black"
       >
@@ -245,11 +245,35 @@ const BannerWithParallaxVideo = () => {
       z-0 cursor-pointer rounded-xl shadow-2xl 
     "
           src='https://www.youtube.com/embed/b5HtjqVjTqo?autoplay=1&mute=1&controls=0&loop=1&playlist=b5HtjqVjTqo&modestbranding=1&rel=0&showinfo=0&enablejsapi=1&playsinline=1'
+          // src={mainVideo}
           title="Sport Promo Video"
           frameBorder="0"
           allow="autoplay; fullscreen"
           allowFullScreen
         ></iframe>
+      </div> */}
+        <div
+        ref={videoContainerRef}
+        className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black"
+      >
+        <video
+          ref={videoRef}
+          src={mainVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="
+            fixed 
+            top-0 left-1/2 transform -translate-x-1/2 
+            sm:top-1/2 sm:-translate-y-1/2
+            object-cover 
+            w-[90vw] h-[30vh] 
+            sm:w-[80vw] sm:h-[40vh] 
+            md:w-[70vw] md:h-[50vh]
+            z-0 cursor-pointer rounded-xl shadow-2xl 
+          "
+        />
       </div>
 
       <div className="relative flex z-10 w-full h-[120vh]  ">
