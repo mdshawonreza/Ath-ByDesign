@@ -12,14 +12,14 @@ import { motion } from 'framer-motion';
 
 
 
-import Image1 from "../../../src/assets/Gemini_Generated_Image_92w0b92w0b92w0b9.png";
-import Image2 from "../../../src/assets/pexels-mali-1415810.jpg";
-import Image3 from "../../../src/assets/pexels-pixabay-2207.jpg";
-import Image4 from "../../../src/assets/pexels-zakaria-2827400.jpg";
+import Image1 from "../../../src/assets/pexels-unknown6user-1657329.jpg";
+import Image2 from "../../../src/assets/pexels-cottonbro-7324650.jpg";
+import Image3 from "../../../src/assets/pexels-tima-miroshnichenko-5711017.jpg";
+import Image4 from "../../../src/assets/pexels-davidgari-11740028.jpg";
 import Image5 from "../../../src/assets/football-american-football-runner-player-159515.webp";
-import Image6 from "../../assets/Gemini_Generated_Image_4r8a9s4r8a9s4r8a.png";
-import Image7 from "../../assets/alonso-reyes-0HlI76m4jxU-unsplash.jpg";
-import Image8 from "../../assets/pexels-victorfreitas-841130.jpg";
+import Image6 from "../../assets/pexels-kindelmedia-6774153.jpg";
+import Image7 from "../../assets/pexels-fauxels-3182787.jpg";
+import Image8 from "../../assets/912.png";
 import Image9 from "../../assets/pexels-runffwpu-1555354.jpg";
 
 
@@ -150,7 +150,7 @@ const ScrollHorizontalComponents = () => {
               </p>
               <h1 className="text-white font-semibold tracking-wider mt-4 flex flex-row items-center justify-center gap-4 text-center">
                 <span className="text-4xl sm:text-6xl md:text-7xl ">
-                  Lorpsum dolor
+                  AthleteX Journey
                 </span>
                 <span className="block w-[200px] md:w-[500px] h-[2px] bg-gray-300 -mr-64"></span>
               </h1>
@@ -196,7 +196,8 @@ const ScrollHorizontalComponents = () => {
                     <div className=" mb-4 ">
                       <h2 className="text-3xl md:text-4xl font-bold mb-4">From Akron</h2>
                       <p className="text-gray-300 max-w-md">
-                        The change the world began as he established The LeBron James Family Foundation.
+                        AthleteX Studio began with a simple goal — to empower athletes with the tools,
+                        branding, and technology they need to rise above the competition.
                       </p>
                     </div>
 
@@ -221,11 +222,11 @@ const ScrollHorizontalComponents = () => {
                   <div className='h-1/2'></div>
                   <div className="p-6 border-t-2 border-white h-1/2">
 
-                    <p className="text-gray-400 text-sm mb-1">2008</p>
-                    <h3 className="text-2xl font-semibold mb-2">Bike-A-Thon</h3>
+                    <p className="text-gray-400 text-sm mb-1">2019</p>
+                    <h3 className="text-2xl font-semibold mb-2">The First Step</h3>
                     <p className="text-gray-300 leading-relaxed">
-                      LeBron hosts his first annual Bike-a-thon, a family-friendly event bringing
-                      the city and its youth together for a day of fun.
+                      We started by collaborating with local athletes and trainers, creating visuals and
+                      digital platforms that turned their dreams into brands.
                     </p>
                   </div>
 
@@ -301,9 +302,10 @@ const ScrollHorizontalComponents = () => {
                   <div className='border-t-2 border-white h-1/2 p-6'>
 
                     <div className=" mb-4 ">
-                      <h2 className="text-3xl md:text-4xl font-bold mb-4">From Akron</h2>
+                      <h2 className="text-3xl md:text-4xl font-bold mb-4">From concept to competition</h2>
                       <p className="text-gray-300 max-w-md">
-                        The change the world began as he established The LeBron James Family Foundation.
+                        We help athletes tell their stories through motion graphics,
+                        websites, and social campaigns that inspire fans worldwide.
                       </p>
                     </div>
 
@@ -326,7 +328,7 @@ const ScrollHorizontalComponents = () => {
           whileInView="show"
           viewport={{ once: false, amount: 0.3 }}
           variants={containerVariants}
-          className="absolute top-0 left-0 w-[100vh]  md:w-[50%]  h-screen flex items-center justify-between "
+          className="absolute top-0 left-0 w-[100vh]  md:w-[50%]  h-screen flex items-center justify-between bg-black"
         >
           <div className=" flex items-center w-full">
 
@@ -335,9 +337,6 @@ const ScrollHorizontalComponents = () => {
               alt="Left Image"
               className=" shadow-lg"
             />
-
-
-
 
           </div>
 
@@ -369,11 +368,11 @@ const ScrollHorizontalComponents = () => {
                   <div className='border-t-2 border-white h-1/2 p-6'>
 
                     <div className=" mb-4 ">
-                      <p className="text-gray-400 text-sm mb-1">2008</p>
-                      <h3 className="text-2xl font-semibold mb-2">Bike-A-Thon</h3>
+                      <p className="text-gray-400 text-sm mb-1">2021</p>
+                      <h3 className="text-2xl font-semibold mb-2">Global Partnerships</h3>
                       <p className="text-gray-300 leading-relaxed">
-                        LeBron hosts his first annual Bike-a-thon, a family-friendly event bringing
-                        the city and its youth together for a day of fun.
+                        AthleteX Studio expanded globally, partnering with elite athletes, brands, and sports
+                        organizations to craft digital identities that perform.
                       </p>
                     </div>
 
@@ -404,9 +403,9 @@ const ScrollHorizontalComponents = () => {
             <img
               src={Image7}
               alt="Left Image"
-              className=" shadow-lg"
+              className="md:w-[865px] shadow-lg"
             />
-            <div className='absolute w-72 md:w-[465px] bottom-0 -right-14 md:-right-24 '>
+            <div className='absolute w-72 md:w-[465px] bottom-0 -right-14 md:-right-52 hidden md:flex'>
               <img
                 src={Image8}
                 alt="Left Image"
@@ -543,9 +542,10 @@ const ScrollHorizontalComponents = () => {
                   <div className='border-t-2 border-white h-1/2 p-6'>
 
                     <div className=" mb-4 ">
-                      <h2 className="text-3xl md:text-4xl font-bold mb-4">From Akron</h2>
+                      <h2 className="text-3xl md:text-4xl font-bold mb-4">From Athlete By Design</h2>
                       <p className="text-gray-300 max-w-md">
-                        The change the world began as he established The LeBron James Family Foundation.
+                        Every athlete has a story. Our creative team transforms those stories into cinematic experiences —
+                        blending energy, emotion, and technology.
                       </p>
                     </div>
 
@@ -568,11 +568,11 @@ const ScrollHorizontalComponents = () => {
                   <div className='h-1/2'></div>
                   <div className="p-6 border-t-2 border-white h-1/2">
 
-                    <p className="text-gray-400 text-sm mb-1">2008</p>
-                    <h3 className="text-2xl font-semibold mb-2">Bike-A-Thon</h3>
+                    <p className="text-gray-400 text-sm mb-1">2023</p>
+                    <h3 className="text-2xl font-semibold mb-2">AthleteX Vision Film</h3>
                     <p className="text-gray-300 leading-relaxed">
-                      LeBron hosts his first annual Bike-a-thon, a family-friendly event bringing
-                      the city and its youth together for a day of fun.
+                      Our documentary-style video series features athletes who’ve turned their challenges into power —
+  inspiring the next generation.
                     </p>
                   </div>
 
@@ -611,7 +611,7 @@ const ScrollHorizontalComponents = () => {
         </motion.div>
 
 
-         <motion.div
+        <motion.div
           ref={addToRefs}
           initial="hidden"
           whileInView="show"
@@ -635,9 +635,10 @@ const ScrollHorizontalComponents = () => {
                   <div className='border-t-2 border-white h-1/2 p-6'>
 
                     <div className=" mb-4 ">
-                      <h2 className="text-3xl md:text-4xl font-bold mb-4">From Akron</h2>
+                      <h2 className="text-3xl md:text-4xl font-bold mb-4">We continue to push the limits </h2>
                       <p className="text-gray-300 max-w-md">
-                        The change the world began as he established The LeBron James Family Foundation.
+                        — merging creativity and technology to amplify athletic
+                        excellence on and off the field.
                       </p>
                     </div>
 
