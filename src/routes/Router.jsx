@@ -9,8 +9,9 @@ import Media from '../pages/media/Media';
 import AiTech from '../pages/aiTech/AiTech';
 import VcGroup from '../pages/vcGroup/VcGroup';
 import Apparel from '../pages/apparel/Apparel';
-import ProductDetails from '../pages/productDetails/ProductDetails';
-import AllProducts from '../pages/allProducts/AllProducts';
+
+import YouthSports from '../pages/youthSports/YouthSports';
+import ContactUs from '../pages/home/ContactUs';
 
 
 
@@ -27,7 +28,7 @@ const Router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/nil-agency",
+        path: "/nil-Agency",
         element: <NilAgency />,
       },
       {
@@ -54,13 +55,14 @@ const Router = createBrowserRouter([
         path: "/apparel",
         element: <Apparel />,
       },
+      
       {
-        path: "/all-products",
-        element: <AllProducts />
+        path: "/youth-Sports",
+        element: <YouthSports />
       },
       {
-        path: "/product-details/:productId",
-        element: <ProductDetails />
+        path: "/contactUs",
+        element: <ContactUs />
       }
     ],
   },

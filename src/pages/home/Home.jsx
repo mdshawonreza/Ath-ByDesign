@@ -2,18 +2,19 @@ import React from 'react';
 import Banner from './Banner';
 import ParallaxZoomVideo from './ParallaxZoomVideo';
 import { motion } from "framer-motion";
-import ScrollHorizontalComponents from './ScrollHorizontalComponents';
+import ScrollHorizontalComponentsAbout from './ScrollHorizontalComponentsAbout';
 import StarSection from './StarSection';
 import AchievementsSection from './AchievementsSection';
 import AboutSection from './AboutSection';
 import TimelineSection from './TimelineSection';
-import NILAgencyTiles from './NILAgencyTiles';
+import ScrollHorizontalComponentsNILAgency from '../nilAgency/ScrollHorizontalComponentsNILAgency';
 import PartnersSection from './PartnersSection';
 import FeaturedSection from './FeaturedSection';
-import ScrollHorizontalComponentsAnother from './ScrollHorizontalComponentsAnother';
+import ScrollHorizontalComponentsYouthSports from '../youthSports/ScrollHorizontalComponentsYouthSports';
 import PartnersSectionAnother from './PartnersSectionAnother';
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import ContactUs from './ContactUs';
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -40,14 +41,18 @@ const Home = () => {
 
             <Banner></Banner>
             {/* <ParallaxZoomVideo></ParallaxZoomVideo> */}
-            <ScrollHorizontalComponents></ScrollHorizontalComponents>
-            <NILAgencyTiles></NILAgencyTiles>
+            {/* <AboutSection></AboutSection> */}
+            <ScrollHorizontalComponentsAbout></ScrollHorizontalComponentsAbout>
+            {/* <PartnersSectionAnother></PartnersSectionAnother> */}
+            {/* <ScrollHorizontalComponentsNILAgency></ScrollHorizontalComponentsNILAgency> */}
             
             <PartnersSection></PartnersSection>
-            <ScrollHorizontalComponentsAnother></ScrollHorizontalComponentsAnother>
-            <PartnersSectionAnother></PartnersSectionAnother>
-            <FeaturedSection></FeaturedSection>
+            {/* <ScrollHorizontalComponentsYouthSports></ScrollHorizontalComponentsYouthSports> */}
+            
+            {/* <FeaturedSection></FeaturedSection> */}
+            {/* <ContactUs></ContactUs> */}
             <AchievementsSection></AchievementsSection>
+            
             {/* <AboutSection></AboutSection> */}
             {/* <TimelineSection></TimelineSection> */}
 

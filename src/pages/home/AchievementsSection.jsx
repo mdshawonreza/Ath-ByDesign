@@ -5,22 +5,22 @@ const AchievementsSection = () => {
   {
     emoji: "👑",
     title: "ATHLETE BY DESIGN",
-    text: "Athlete by Design focuses on helping athletes reach their full potential through personalized training, mindset coaching, and performance strategies.",
+    text: "Athlete By Design focuses on helping athletes reach their full potential through personalized training, mindset coaching, and performance strategies.",
   },
   {
     emoji: "🚀",
     title: "STRIVE FOR EXCELLENCE",
-    text: "The core philosophy of Athlete by Design is continuous improvement. Athletes are encouraged to push their limits both on and off the field, striving to achieve excellence in every aspect.",
+    text: "The core philosophy of Athlete By Design is continuous improvement. Athletes are encouraged to push their limits both on and off the field, striving to achieve excellence in every aspect.",
   },
   {
     emoji: "❤️",
     title: "COMMUNITY & SUPPORT",
-    text: "Athlete by Design emphasizes the importance of teamwork and community. Every athlete is supported through a network of mentors, trainers, and peers to create lasting impact.",
+    text: "Athlete By Design emphasizes the importance of teamwork and community. Every athlete is supported through a network of mentors, trainers, and peers to create lasting impact.",
   },
   {
     emoji: "💪",
     title: "MORE THAN JUST SPORTS",
-    text: "Athlete by Design goes beyond athletic performance. It empowers athletes with life skills, leadership training, and personal development, ensuring they succeed both in sports and life.",
+    text: "Athlete By Design goes beyond athletic performance. It empowers athletes with life skills, leadership training, and personal development, ensuring they succeed both in sports and life.",
   },
 ];
 
@@ -29,7 +29,7 @@ const AchievementsSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center max-w-7xl mx-auto">
         {cards.map((card, index) => (
           <div key={index} className="flex flex-col items-center space-y-3">
-            <div className="text-5xl">{card.emoji}</div>
+            {/* <div className="text-5xl">{card.emoji}</div> */}
             <h3 className="text-lg font-bold">{card.title}</h3>
             <p className="text-sm text-gray-300 leading-relaxed">{card.text}</p>
           </div>

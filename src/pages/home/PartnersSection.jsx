@@ -1,92 +1,186 @@
-import React from "react";
-import Image1 from "../../assets/pexels-pixabay-290416.jpg";
-import Image2 from "../../assets/pexels-willpicturethis-1954524.jpg";
+
+// import React, { useRef, useEffect, useState } from "react";
+// import Female1 from "../../assets/pexels-pixabay-290416.jpg";
+// import Female2 from "../../assets/pexels-willpicturethis-1954524.jpg";
+// import Boxer from "../../assets/pexels-pixabay-290416.jpg"; // replace with your boxer image
+// import Video from "../../assets/WhatsApp Video 2025-11-02 at 23.05.44_a9b69dfb.mp4";
+
+// const PartnersSection = () => {
+//   const videoRef = useRef(null);
+//   const [isVisible, setIsVisible] = useState(false);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       (entries) => {
+//         const entry = entries[0];
+//         setIsVisible(entry.isIntersecting);
+//       },
+//       { threshold: 0.5 }
+//     );
+//     if (videoRef.current) observer.observe(videoRef.current);
+//     return () => {
+//       if (videoRef.current) observer.unobserve(videoRef.current);
+//     };
+//   }, []);
+
+//   useEffect(() => {
+//     const video = videoRef.current;
+//     if (video) {
+//       if (isVisible) {
+//         video.muted = false;
+//         video.play().catch((err) => console.log("Autoplay error:", err));
+//       } else {
+//         video.muted = true;
+//         video.pause();
+//       }
+//     }
+//   }, [isVisible]);
+
+//   return (
+//     <div className="bg-black">
 
 
-const PartnersSection = () => {
+//       {/* Middle: Boxer image full width */}
+//       <div className="relative w-full h-[100vh] overflow-hidden">
+//         <img
+//           src={Boxer}
+//           alt="Boxer"
+//           className="absolute inset-0 w-full h-full object-cover"
+//         />
+//       </div>
+
+//       {/* Bottom: Video full width */}
+//       <div className="relative w-full h-[100vh] overflow-hidden bg-black hidden md:flex">
+//         <video
+//           ref={videoRef}  // <- ref goes here
+//           src={Video}
+//           className="absolute inset-0 w-full h-full object-cover"
+//           loop
+//           playsInline
+//           muted
+//         />
+//       </div>
+//       <div className="relative w-full overflow-hidden bg-red-600 flex md:hidden">
+//         <video
+//           ref={videoRef}
+//           src={Video}
+//           className="w-full h-auto object-cover"
+//           loop
+//           playsInline
+//           muted
+//         />
+//       </div>
+
+
+
+//     </div>
+//   );
+// };
+
+// export default PartnersSection;
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import Boxer from "../../assets/pexels-pixabay-290416.jpg";
+import Video from "../../assets/WhatsApp Video 2025-11-02 at 23.05.44_a9b69dfb.mp4";
+
+export default function PartnersSection() {
+  const videoRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  // ✅ callback refs without TS types
+  const setVideoRef = (el) => { videoRef.current = el; };
+  const setSectionRef = (el) => { sectionRef.current = el; };
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [soundAllowed, setSoundAllowed] = useState(false);
+
+  useEffect(() => {
+    const target = sectionRef.current;
+    if (!target) return;
+    const io = new IntersectionObserver(
+      (entries) => setIsVisible(!!entries[0]?.isIntersecting),
+      { threshold: 0.5 }
+    );
+    io.observe(target);
+    return () => io.unobserve(target);
+  }, []);
+
+  useEffect(() => {
+    if (soundAllowed) return;
+    const unlock = () => {
+      setSoundAllowed(true);
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("touchend", unlock);
+      window.removeEventListener("click", unlock);
+    };
+    window.addEventListener("pointerdown", unlock, { once: true });
+    window.addEventListener("touchend", unlock, { once: true });
+    window.addEventListener("click", unlock, { once: true });
+    return () => {
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("touchend", unlock);
+      window.removeEventListener("click", unlock);
+    };
+  }, [soundAllowed]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playSafely = () => {
+      if (!soundAllowed) video.muted = true; // required for autoplay
+      video.play().catch(() => {});
+    };
+
+    if (document.hidden) {
+      video.pause();
+      return;
+    }
+
+    if (isVisible) {
+      playSafely();
+      if (soundAllowed) {
+        video.muted = false;
+        video.volume = 1;
+      }
+    } else {
+      video.muted = true;
+      video.pause();
+    }
+  }, [isVisible, soundAllowed]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const onVis = () => {
+      if (document.hidden) video.pause();
+      else if (isVisible) video.play().catch(() => {});
+    };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, [isVisible]);
+
   return (
-    <div >
-      <section className="bg-black relative h-[110vh]">
-        <div className="py-4 px-2 sm:py-4 lg:px-6 h-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 h-full">
+    <div className="bg-black">
+      <div className="relative w-full h-[100vh] overflow-hidden">
+        <img src={Boxer} alt="Boxer" className="absolute inset-0 w-full h-full object-cover" />
+      </div>
 
-            {/* Left Big Image */}
-            <div className="col-span-2 sm:col-span-1 md:col-span-2 h-full flex flex-col">
-              <a
-                href="#"
-                className="group relative flex flex-col overflow-hidden  flex-grow h-full"
-              >
-                {/* Background Image */}
-                <img
-                  src={Image1}
-                  alt="Athlete Training"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-                />
-
-                {/* Cinematic Black Fade Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/95 transition-all duration-700"></div>
-
-                {/* Glass Effect Text Box */}
-                <div
-                  className="absolute bottom-28 left-1/2 -translate-x-1/2 text-center"
-                >
-                  <h3 className="text-white text-2xl md:text-3xl font-bold tracking-wide drop-shadow-lg ">
-                    Lorem, ipsum dolor.
-
-                  </h3>
-                  <p className="text-orange-500 text-sm md:text-base mt-1 italic ">
-                    Strength. Passion. Legacy.
-                  </p>
-                </div>
-              </a>
-            </div>
-
-
-            {/* Right Side Grid */}
-            <div className="col-span-2 sm:col-span-1 md:col-span-2 flex flex-col gap-4 h-full">
-              <div className="grid grid-cols-1 gap-4 flex-grow h-1/2">
-                {/* Top  Image */}
-
-                <div className="relative flex flex-col overflow-hidden  flex-1 w-full h-full ">
-                  <iframe
-                    className="absolute inset-0 w-full h-full object-cover"
-                    src="https://www.youtube.com/embed/b5HtjqVjTqo?autoplay=1&mute=1&loop=1&controls=0&playlist=b5HtjqVjTqo&playsinline=1"
-                    title="LeBron Video"
-                    allow="autoplay; fullscreen"
-                  ></iframe>
-                </div>
-              </div>
-
-
-
-              {/* Bottom Two Small Images */}
-              <div className="grid grid-cols-1 gap-4 flex-grow h-1/2">
-
-
-                <a
-                  href="#"
-                  className="group relative flex flex-col overflow-hidden  h-full"
-                >
-                  <img
-                    src={Image2}
-                    alt="Vodka"
-                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
-                  {/* <h3 className="z-10 text-2xl md:text-3xl font-medium text-white absolute top-0 left-0 p-4">
-              Vodka
-            </h3> */}
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
+      <div ref={setSectionRef} className="relative w-full overflow-hidden bg-black">
+        <video
+          ref={setVideoRef}
+          src={Video}
+          className="w-full h-auto md:h-[100vh] object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload noremoteplayback"
+        />
+      </div>
     </div>
   );
-};
-
-export default PartnersSection;
+}

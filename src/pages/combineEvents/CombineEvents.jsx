@@ -1,8 +1,104 @@
-import React from 'react';
+
+import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Trophy, Target, Zap, Award } from 'lucide-react';
+import { Calendar, Trophy, Target, Zap, Award, VolumeX, Volume2 } from 'lucide-react';
+import video1 from "../../assets/WhatsApp Video 2025-12-01 at 11.28.32 AM.mp4";
 
 const CombineEvents = () => {
+   const containerRef = useRef(null);
+  const videoRef = useRef(null);
+
+  const [isInView, setIsInView] = useState(false);
+  const [soundAllowed, setSoundAllowed] = useState(false);
+
+  // --- Detect if video in view ---
+  useEffect(() => {
+    const target = containerRef.current;
+    if (!target) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    io.observe(target);
+    return () => io.disconnect();
+  }, []);
+
+  // --- Unlock audio only once user interacts (click/touch) ---
+  useEffect(() => {
+    if (soundAllowed) return;
+
+    const unlock = () => {
+      setSoundAllowed(true);
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("touchend", unlock);
+      window.removeEventListener("click", unlock);
+    };
+
+    window.addEventListener("pointerdown", unlock, { once: true });
+    window.addEventListener("touchend", unlock, { once: true });
+    window.addEventListener("click", unlock, { once: true });
+
+    return () => {
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("touchend", unlock);
+      window.removeEventListener("click", unlock);
+    };
+  }, [soundAllowed]);
+
+  // --- Autoplay logic based on view + sound permission ---
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    const safePlay = async () => {
+      // Before permission → muted autoplay required
+      if (!soundAllowed) v.muted = true;
+
+      try {
+        await v.play();
+      } catch {
+        v.muted = true;
+        try {
+          await v.play();
+        } catch {}
+      }
+    };
+
+    if (document.hidden) {
+      v.pause();
+      return;
+    }
+
+    if (isInView) {
+      safePlay();
+
+      if (soundAllowed) {
+        v.muted = false;
+        v.volume = 1;
+      }
+    } else {
+      v.muted = true;
+      v.pause();
+    }
+  }, [isInView, soundAllowed]);
+
+  // --- Pause when tab hidden ---
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    const visHandler = () => {
+      if (document.hidden) v.pause();
+      else if (isInView) v.play().catch(() => {});
+    };
+
+    document.addEventListener("visibilitychange", visHandler);
+    return () => document.removeEventListener("visibilitychange", visHandler);
+  }, [isInView]);
   const combines = [
     {
       icon: Trophy,
@@ -10,7 +106,7 @@ const CombineEvents = () => {
       description:
         'Push your limits on the gridiron with our Football Combine, where elite drills meet pro-level testing. We measure 40-yard dash speed, shuttle agility, vertical leap and position-specific skills so coaches and scouts see exactly where you shine. Our expert trainers lead small-group sessions to fine-tune footwork, tackling form, route running and hand-eye coordination. Walk away with a personalized performance report and video highlights that put your best plays in the spotlight.',
       gradient: 'from-teal-400 to-cyan-500',
-      image: 'https://images.pexels.com/photos/3991870/pexels-photo-3991870.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: ' https://i.ibb.co.com/7Jfh82S2/Whats-App-Image-2025-11-14-at-03-05-20-e7687ba0.jpg  ',
     },
     {
       icon: Target,
@@ -18,7 +114,7 @@ const CombineEvents = () => {
       description:
         'Step onto the court and showcase the athleticism every coach covets. Our Basketball Combine features timed sprints, lane agility, standing and max vertical leaps, plus spot-up shooting, on-the-move shooting and defensive footwork drills. Certified evaluators track your accuracy, reaction time and court vision in real time. Every participant leaves with a skill-development plan and a custom highlight reel designed to catch recruiters’ eyes.',
       gradient: 'from-cyan-400 to-blue-500',
-      image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://i.ibb.co.com/hRMLLY6F/Whats-App-Image-2025-11-14-at-03-05-20-94eb85ba.jpg',
     },
     {
       icon: Zap,
@@ -26,7 +122,7 @@ const CombineEvents = () => {
       description:
         'Take your swing and glove work to the next level. In our Baseball Combine, you’ll face pitching velocity tests, exit velocity measurements, arm-strength radar and infield/outfield fielding drills. Hit off live pitching to record launch angle and bat speed, then sharpen your diving catches and footwork. You’ll receive an in-depth scouting report—complete with metrics and video clips—to share directly with college and pro scouts.',
       gradient: 'from-blue-400 to-teal-500',
-      image: 'https://images.pexels.com/photos/1634034/pexels-photo-1634034.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://i.ibb.co.com/8npzyfmF/Whats-App-Image-2025-11-14-at-03-05-19-a44fcedc.jpg',
     },
     {
       icon: Award,
@@ -55,7 +151,7 @@ const CombineEvents = () => {
         className="relative h-[90vh] flex items-center justify-center text-center bg-fixed bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/3822676/pexels-photo-3822676.jpeg?w=1600')",
+            "url('https://i.ibb.co.com/HLXfZD23/jonathan-chng-Hgo-Kvt-Kpy-HA-unsplash.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/80"></div>
@@ -65,7 +161,7 @@ const CombineEvents = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div
+            {/* <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring', stiffness: 100 }}
@@ -73,7 +169,20 @@ const CombineEvents = () => {
             >
               <Calendar className="h-5 w-5 text-orange-500" />
               <span className="text-orange-500 font-medium">Intro to Combine Events</span>
-            </motion.div>
+            </motion.div> */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white"
+            >
+              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                {/* Intro to */}
+              </span>{" "}
+              <span className="bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent">
+                Combine Events
+              </span>
+            </motion.h1>
 
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Whether you’re striving to measure yourself against other standout athletes or
@@ -120,11 +229,11 @@ const CombineEvents = () => {
                   alt={combine.title}
                   className="w-full h-48 object-cover rounded-2xl mb-4 opacity-80 hover:opacity-100 transition duration-300"
                 />
-                <div
+                {/* <div
                   className={`absolute top-4 left-4 p-3 rounded-xl bg-gradient-to-r ${combine.gradient}`}
                 >
                   <combine.icon className="h-7 w-7 text-black" />
-                </div>
+                </div> */}
                 <h3 className="text-2xl font-semibold text-white mb-3 mt-2">{combine.title}</h3>
                 <p className="text-gray-300 mb-4">{combine.description}</p>
               </motion.div>
@@ -137,7 +246,7 @@ const CombineEvents = () => {
       <section
         className="relative py-24 bg-fixed bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://images.pexels.com/photos/317157/pexels-photo-317157.jpeg?w=1600')",
+          backgroundImage: "url('https://i.ibb.co.com/r2CMqxXQ/salah-regouane-FKa-Q28-U0-UH4-unsplash.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/80"></div>
@@ -156,16 +265,19 @@ const CombineEvents = () => {
               Every ABD Combine is designed to provide comprehensive athletic evaluation with world-class resources and expert guidance.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full" />
-                  <span className="text-gray-300">{benefit}</span>
-                </div>
-              ))}
+            <div className='flex justify-center'>
+              <div className="grid grid-cols-1  gap-6 ">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-center space-x-3 ">
+                    <div className="w-2 h-2 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full" />
+                    <span className="text-gray-300 text-left">{benefit}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
+
       </section>
 
       {/* Video + Gallery Section */}
@@ -185,20 +297,25 @@ const CombineEvents = () => {
             Experience the intensity, training, and elite performance of our athletes in action.
           </p>
 
-          <div className="relative w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden border border-orange-500/40">
-            <iframe
-              className="w-full h-full rounded-2xl"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Behind the Scenes"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+         <div
+            ref={containerRef}
+            className="relative w-full h-[250px] md:h-[600px] overflow-hidden rounded-2xl border border-orange-500/40"
+          >
+            <div className="relative w-full h-full flex items-center justify-center bg-black">
 
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <span className="text-white text-2xl md:text-3xl font-semibold">
-                Elite Training in Action
-              </span>
+              <video
+                ref={videoRef}
+                src={video1}
+                className="absolute inset-0 w-full h-full object-cover md:object-contain"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                controls={false}
+                disablePictureInPicture
+                controlsList="nodownload noremoteplayback"
+              />
             </div>
           </div>
 
@@ -214,10 +331,10 @@ const CombineEvents = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             {[
-              'https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=800',
-              'https://images.pexels.com/photos/1552109/pexels-photo-1552109.jpeg?auto=compress&cs=tinysrgb&w=800',
-              'https://images.pexels.com/photos/1142969/pexels-photo-1142969.jpeg?auto=compress&cs=tinysrgb&w=800',
-              'https://images.pexels.com/photos/1142961/pexels-photo-1142961.jpeg?auto=compress&cs=tinysrgb&w=800'
+              'https://i.ibb.co/tMvKZzyD/Whats-App-Image-2025-11-30-at-9-21-45-PM.jpg',
+              'https://i.ibb.co/HLHWzHww/Whats-App-Image-2025-11-30-at-9-21-44-PM-2.jpg',
+              'https://i.ibb.co/d457TxHr/Whats-App-Image-2025-11-30-at-9-21-44-PM-1.jpg',
+              'https://i.ibb.co/35YBBjGB/Whats-App-Image-2025-11-30-at-9-21-44-PM.jpg'
             ].map((img, i) => (
               <motion.div
                 key={i}
@@ -232,9 +349,6 @@ const CombineEvents = () => {
                   alt={`Highlight ${i + 1}`}
                   className="w-full h-48 md:h-56 object-cover transform hover:scale-105 transition duration-300"
                 />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                  <span className="text-orange-500 font-bold text-lg">Action Shot</span>
-                </div>
               </motion.div>
             ))}
           </div>
@@ -246,3 +360,5 @@ const CombineEvents = () => {
 };
 
 export default CombineEvents;
+
+

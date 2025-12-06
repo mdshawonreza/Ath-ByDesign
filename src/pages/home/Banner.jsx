@@ -217,42 +217,58 @@ const BannerWithParallaxVideo = () => {
 
   return (
     <div className="relative w-full bg-black">
+
+
       {/* Banner Image */}
-      <div className="relative z-10 w-full h-[120vh]  sm:h-[120vh]">
+      {/* <div className="relative z-10 w-full h-[120vh]  sm:h-[120vh]">
         <img
           src={banner}
           alt="Banner"
           className="w-full h-full object-cover"
         />
-      </div>
-
-      {/* Parallax Video */}
-      {/* <div
-        ref={videoContainerRef}
-        className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black"
-      >
-        <iframe
-          ref={videoRef}
-          onClick={handleVideoClick}
-          className="
-      fixed 
-      top-0 left-1/2 transform -translate-x-1/2 
-      sm:top-1/2 sm:-translate-y-1/2
-      object-cover 
-      w-[90vw] h-[30vh] 
-      sm:w-[80vw] sm:h-[40vh] 
-      md:w-[70vw] md:h-[50vh]
-      z-0 cursor-pointer rounded-xl shadow-2xl 
-    "
-          src='https://www.youtube.com/embed/b5HtjqVjTqo?autoplay=1&mute=1&controls=0&loop=1&playlist=b5HtjqVjTqo&modestbranding=1&rel=0&showinfo=0&enablejsapi=1&playsinline=1'
-          // src={mainVideo}
-          title="Sport Promo Video"
-          frameBorder="0"
-          allow="autoplay; fullscreen"
-          allowFullScreen
-        ></iframe>
       </div> */}
-        <div
+      <section className="relative w-full h-[120vh] sm:h-[120vh] z-30">
+        {/* Background Image */}
+        <img
+          src={banner} // আপনার imported image
+          alt="Banner"
+          className="w-full h-full object-cover"
+        />
+
+        {/* Dark overlay over the entire section */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Right-side Content */}
+        <div className="absolute inset-0 flex items-center justify-end px-5 sm:px-10">
+          <div className="max-w-prose text-white text-right relative">
+            <h1 className="text-4xl sm:text-5xl font-bold">
+              Ashton Jeanty 
+
+            </h1>
+            <p className="mt-4 text-base sm:text-lg text-gray-200">
+             2024 Heisman Runner-up 
+
+            </p>
+            <p className="mt-4 text-base sm:text-lg text-gray-200">
+            1st round draft pick - Las Vegas Raiders 
+
+            </p>
+
+            {/* Overlay bar under the text */}
+            {/* <div className="mt-6 h-2 w-full bg-indigo-600 relative overflow-hidden">
+              <div className="absolute top-0 right-0 h-full w-full bg-indigo-400 animate-slideLeft"></div>
+            </div> */}
+
+            
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <div
         ref={videoContainerRef}
         className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black"
       >
@@ -270,7 +286,7 @@ const BannerWithParallaxVideo = () => {
             object-cover 
             w-[90vw] h-[30vh] 
             sm:w-[80vw] sm:h-[40vh] 
-            md:w-[70vw] md:h-[50vh]
+            md:w-[70vw] md:h-[100vh]
             z-0 cursor-pointer rounded-xl shadow-2xl 
           "
         />
