@@ -235,7 +235,7 @@ const VCGroup = () => {
             while helping historically ignored groups achieve entrepreneurial success.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          {/* <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -251,7 +251,7 @@ const VCGroup = () => {
             >
               Partner With Us
             </motion.button>
-          </div>
+          </div> */}
         </motion.div>
       </section>
 
@@ -290,9 +290,9 @@ const VCGroup = () => {
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-6">
                 <div className="text-center">
-                  <div className={`inline-flex items-center justify-center bg-gradient-to-r from-teal-400 to-cyan-500 p-3 rounded-full mb-4`}>
+                  {/* <div className={`inline-flex items-center justify-center bg-gradient-to-r from-teal-400 to-cyan-500 p-3 rounded-full mb-4`}>
                     <Users className="h-8 w-8 text-black" />
-                  </div>
+                  </div> */}
                   <h3 className="text-2xl font-semibold text-white mb-2">Athlete Investors</h3>
                   <p className="text-gray-300">College, pro, and retired athletes get opportunity to invest in start-ups.</p>
                 </div>
@@ -315,9 +315,9 @@ const VCGroup = () => {
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-6">
                 <div className="text-center">
-                  <div className={`inline-flex items-center justify-center bg-gradient-to-r from-cyan-400 to-blue-500 p-3 rounded-full mb-4`}>
+                  {/* <div className={`inline-flex items-center justify-center bg-gradient-to-r from-cyan-400 to-blue-500 p-3 rounded-full mb-4`}>
                     <Target className="h-8 w-8 text-black" />
-                  </div>
+                  </div> */}
                   <h3 className="text-2xl font-semibold text-white mb-2">BIPOC & Female Founders</h3>
                   <p className="text-gray-300">Focus on businesses founded by historically underrepresented groups.</p>
                 </div>
@@ -340,9 +340,9 @@ const VCGroup = () => {
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-6">
                 <div className="text-center">
-                  <div className={`inline-flex items-center justify-center bg-gradient-to-r from-blue-400 to-teal-500 p-3 rounded-full mb-4`}>
+                  {/* <div className={`inline-flex items-center justify-center bg-gradient-to-r from-blue-400 to-teal-500 p-3 rounded-full mb-4`}>
                     <Briefcase className="h-8 w-8 text-black" />
-                  </div>
+                  </div> */}
                   <h3 className="text-2xl font-semibold text-white mb-2">Student Athlete Entrepreneur</h3>
                   <p className="text-gray-300">Special focus on start-ups founded by student athletes entrepreneur.</p>
                 </div>
@@ -364,11 +364,11 @@ const VCGroup = () => {
                 className="w-full h-64 md:h-72 object-cover opacity-80 hover:opacity-100 transition duration-300"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-6">
-                <div className="text-center">
-                  <div className={`inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-green-400 p-3 rounded-full mb-4 md:mt-[26px]`}>
+                <div className="text-center mb-4 md:mt-[40px]">
+                  {/* <div className={`inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-green-400 p-3 rounded-full mb-4 md:mt-[26px]`}>
                     <Heart className="h-8 w-8 text-black" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-2">Dual Mission</h3>
+                  </div> */}
+                  <h3 className="text-2xl font-semibold text-white  mb-2">Dual Mission</h3>
                   <p className="text-gray-300">Investment income for athletes while supporting ignored groups achieve goals.</p>
                 </div>
               </div>

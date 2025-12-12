@@ -344,7 +344,7 @@ import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Camera, Film, Tv, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import video1 from '../../assets/whatsapp-video.mp4';
-import video2 from '../../assets/WhatsApp Video 2025-12-05 at 11.00.25 PM.mp4'; // add your 2nd video here
+import video2 from '../../assets/WhatsApp Video 2025-12-08 at 9.29.08 AM.mp4'; // add your 2nd video here
 
 const Media = () => {
   // Track refs and state for the first two cards (both are videos)
@@ -404,7 +404,7 @@ const Media = () => {
       image: 'https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?w=800',
     },
     {
-      title: 'NIL Success Stories',
+      title: 'Nex Gen - NIL',
       type: 'Docuseries Episode',
       views: '1.8M',
       image: 'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?w=800',

@@ -128,7 +128,7 @@ const CombineEvents = () => {
       icon: Award,
       title: 'Soccer Combine',
       description:
-        'Own the pitch with precision and power. Our Soccer Combine evaluates sprint speed, endurance (Yo-Yo test), agility courses and technical challenges like dribbling through cones and shooting accuracy under pressure. Position-specific sessions hone first touch, crossing, defending and goalkeeping reflexes. You’ll depart with a comprehensive performance profile and highlight montage that showcases your skills to top program.',
+        'Own the pitch with precision and power. Our Soccer Combine evaluates sprint speed, endurance (Yo-Yo test), agility courses and technical challenges like dribbling through cones and shooting accuracy under pressure. Position-specific sessions hone first touch, crossing, defending and goalkeeping reflexes. You’ll depart with a comprehensive performance profile and highlight montage that showcases your skills to top programs.',
       gradient: 'from-teal-500 to-green-400',
       image: 'https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=800',
     },

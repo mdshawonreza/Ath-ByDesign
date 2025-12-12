@@ -590,6 +590,7 @@ const AiTech = () => {
                 {/* Bullet Points */}
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
                   <li>AI-Driven Workout & Recovery Plans</li>
+                  <li>Live Stream with pro athletes for workout tips</li>
                   <li>Augmented Reality (AR) Movement Demos</li>
                   <li>Performance Analytics Dashboards</li>
                   <li>Athlete & Trainer Matchmaking</li>

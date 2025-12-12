@@ -586,7 +586,7 @@ const ScrollHorizontalComponentsAbout = () => {
         >
           {/* Top Left Corner Text */}
           <div className="absolute top-48 left-32  text-2xl md:text-4xl font-semibold drop-shadow-lg bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent">
-            India Green  <br />   Michelle Freeman
+            India Green  <br />   Mechelle Freeman
           </div>
         </motion.div>
 
